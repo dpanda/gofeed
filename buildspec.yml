@@ -9,10 +9,12 @@ phases:
   build:	
     commands:
       - GOOS=linux GOARCH=amd64 go build -o main dilbert.go awkardyeti.go nedroid.go gofeed.go
-  post_build:
-    commands:
-      - zip main.zip main
+  #post_build:
+  #  commands:
+  #    - zip main.zip main
 
 artifacts: 
   files: 
-    - main.zip
+    - main
+    - aws/cloudformation.yaml
+  discard-paths: yes
