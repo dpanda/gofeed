@@ -1,6 +1,11 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - go get "github.com/mmcdole/gofeed"
+      - go get "github.com/gorilla/feeds"
+      - go get "github.com/aws/aws-lambda-go/events"
   build:	
     commands:
       - GOOS=linux GOARCH=amd64 go build -o main dilbert.go awkardyeti.go nedroid.go gofeed.go
