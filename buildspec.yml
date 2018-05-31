@@ -8,7 +8,7 @@ phases:
       - go get "github.com/aws/aws-lambda-go/events"
   build:	
     commands:
-      - GOOS=linux GOARCH=amd64 go build -o main dilbert.go awkardyeti.go nedroid.go stefanotartarotti.og gofeed.go
+      - GOOS=linux GOARCH=amd64 go build -o main dilbert.go awkardyeti.go nedroid.go stefanotartarotti.go gofeed.go
   #post_build:
   #  commands:
   #    - zip main.zip main
