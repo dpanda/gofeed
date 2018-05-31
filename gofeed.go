@@ -17,6 +17,7 @@ func main() {
 	//parseFeed("awkardyeti")
 	//parseFeed("dilbert")
 	//parseFeed("nedroid")
+	//parseFeed("stefanotartarotti")
 }
 
 func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
@@ -36,6 +37,8 @@ func parseFeed(feedName string) (string, error) {
 		link = "http://theawkwardyeti.com/feed/"
 	case "nedroid":
 		link = "http://nedroid.com/feed/"
+	case "stefanotartarotti":
+		link = "https://www.ilpost.it/stefanotartarotti/feed/"
 	}
 
 	log.Println("Starting")
@@ -82,6 +85,8 @@ func convertFeed(id string, feed *gofeed.Feed) <-chan feeds.Item {
 			go func() { c <- ConvertAwkardyetiFeedItem(item) }()
 		case "nedroid":
 			go func() { c <- ConvertNedroidFeedItem(item) }()
+		case "stefanotartarotti":
+			go func() { c <- ConvertStefanoTartarottiFeedItem(item) }()
 		}
 	}
 	return c
